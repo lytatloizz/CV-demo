@@ -1,0 +1,29 @@
+.blog{
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: -10%;
+    background-color: rgb(241, 245, 248);
+}
+.blog .blog-author{
+    color: rgb(5, 146, 146);
+    padding-right: 25px;
+}
+.blog .blog-date{
+    color: rgb(5, 146, 146);
+}
+.blog .blog-title h1{
+    text-align: center;
+    width: 100%;
+    color: black;
+}
+.blog .blog-content img{
+    width: 100%;
+    height: auto;
+}
+
+.related-post .related-post-title h1{
+    text-align: center;
+    width: 100%;
+    color: black;
+}

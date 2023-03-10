@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/menu', function () {
-    return view('menu');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/reservation', function () {
-    return view('reservation');
-});
-Route::get('/service', function () {
-    return view('service');
-});
-Route::get('/testimonial', function () {
-    return view('testimonial');
-});
+Route::get('/', [Controller::class, 'index']);
+Route::get('/about', [Controller::class, 'about']);
+Route::get('/menu', [Controller::class, 'menu']);
+Route::get('/contact', [Controller::class, 'contact']);
+Route::get('/reservation', [Controller::class, 'reservation']);
+Route::get('/service', [Controller::class, 'service']);
+Route::get('/testimonial', [Controller::class, 'testimonial']);
+Route::get('/shop', [Controller::class, 'shop']);
+Route::get('/detail', [Controller::class, 'detail']);
+Route::get('/blog', [Controller::class, 'blog']);
+Route::get('/shop-cart', [Controller::class, 'shop_cart']);
