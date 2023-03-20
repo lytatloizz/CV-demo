@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Products;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,13 +14,18 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     function index(){
-        return view('/index');
+        $products = Products::protype('1');
+        $productsC = Products::protype('3');
+        return view('/index',compact('products','productsC'));
     }
     function about(){
-        return view('/about');
+        $blogs = Blog::all();
+        return view('/about',compact('blogs'));
     }
     function menu(){
-        return view('/menu');
+        $products = Products::protype('1');
+        $productsC = Products::protype('3');
+        return view('/menu', compact('products','productsC'));
     }
     function contact(){
         return view('/contact');
@@ -33,13 +40,17 @@ class Controller extends BaseController
         return view('/testimonial');
     }
     function shop(){
-        return view('/shop');
+        $products = Products::index();
+        return view('/shop',compact('products'));
     }
-    function detail(){
-        return view('/detail');
+    function detail($key){
+        $productbyid = Products::find($key);
+        $relaproducts = Products::protype('3')->paginate(4);
+        return view('/detail',compact('relaproducts','productbyid'));
     }
-    function blog(){
-        return view('/blog');
+    function blog($key){
+        $blogs = Blog::Blogbyid($key);
+        return view('/blog', compact('blogs'));
     }
     function shop_cart(){
         return view('/shop-cart');

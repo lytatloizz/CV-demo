@@ -17,9 +17,12 @@
     width: 100%;
     color: black;
 }
-.blog .blog-content img{
+.blog .blog-content .blog-image{
     width: 100%;
     height: auto;
+}
+.blog .blog-content p{
+    text-indent: 50px;
 }
 
 .related-post .related-post-title h1{

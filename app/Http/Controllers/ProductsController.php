@@ -16,6 +16,7 @@ class ProductsController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -82,5 +83,6 @@ class ProductsController extends Controller
     public function destroy(Products $products)
     {
         //
+
     }
 }

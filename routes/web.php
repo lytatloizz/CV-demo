@@ -22,6 +22,6 @@ Route::get('/reservation', [Controller::class, 'reservation']);
 Route::get('/service', [Controller::class, 'service']);
 Route::get('/testimonial', [Controller::class, 'testimonial']);
 Route::get('/shop', [Controller::class, 'shop']);
-Route::get('/detail', [Controller::class, 'detail']);
-Route::get('/blog', [Controller::class, 'blog']);
+Route::get('/detail/{key}', [Controller::class, 'detail']);
+Route::get('/blog/{key}', [Controller::class, 'blog']);
 Route::get('/shop-cart', [Controller::class, 'shop_cart']);

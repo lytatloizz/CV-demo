@@ -15,4 +15,8 @@ class Blog extends Model
      * @var string
      */
     protected $primaryKey = 'blog_id';
+
+    function scopeBlogbyid($query,$id){
+        return $query->find($id);
+    }
 }

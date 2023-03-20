@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>KOPPEE - Coffee Shop HTML Template</title>
+    <title>CV - Coffee Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
@@ -44,8 +44,8 @@
         </div>
     </div>
     <!-- Modal Start -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
@@ -76,14 +76,60 @@
                             </div>
                             <div class="col">
                                 <!-- Simple link -->
-                                <a href="#">Forgot password?</a>
+                                <a href="">Forgot password?</a>
                             </div>
                         </div>
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
                         <!-- Register buttons -->
                         <div class="text-center">
-                            <p>Not a member? <a href="#!">Register</a></p>
+                            <p>Not a member? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal1">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">REGISTER</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <!-- Name input -->
+                        <div class="form-group">
+                            <label class="form-label" for="form2Example2">Name</label>
+                            <input type="text" class="form-control bg-transparent border-primary p-4" placeholder="Name" required="required" />
+                        </div>
+                        <!-- Email input -->
+                        <div class="form-group">
+                            <label class="form-label" for="form2Example2">Email</label>
+                            <input type="mail" class="form-control bg-transparent border-primary p-4" placeholder="Email" required="required" />
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-group">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" class="form-control bg-transparent border-primary p-4" placeholder="Password" required="required" />
+                        </div>
+                        <!-- RePassword input -->
+                        <div class="form-group">
+                            <label class="form-label" for="form2Example2">Repassword</label>
+                            <input type="password" class="form-control bg-transparent border-primary p-4" placeholder="Repassword" required="required" />
+                        </div>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>You are member? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal">Login</a></p>
                         </div>
                     </form>
                 </div>
@@ -98,7 +144,7 @@
     <div class="container-fluid p-0 nav-bar">
         <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
             <a href="/" class="navbar-brand px-lg-4 m-0">
-                <h1 class="m-0 display-4 text-uppercase text-white">KOPPEE</h1>
+                <h1 class="m-0 display-4 text-uppercase text-white">CV</h1>
             </a>
             <div class="col-lg-4 col-6 text-left">
                 <form action="/shop">

@@ -1,6 +1,7 @@
 .top-header{
     background-color: cyan;
     text-align: right;
+    display: flex;
 }
 .top-header a{
     color: black;
