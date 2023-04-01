@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -84,5 +85,15 @@ class ProductsController extends Controller
     {
         //
 
+    }
+
+    public function search_ajax(Request $request){
+        $key = $request->get('query');
+        $searchs = Products::search_ajax($key);
+        return view('ajax.search-ajax-result', compact('searchs'));
+    }
+    public function show_ajax(){
+        $products = Products::index();
+        return view('ajax.search-ajax-show', compact('products'));
     }
 }

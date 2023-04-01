@@ -146,18 +146,6 @@
             <a href="/" class="navbar-brand px-lg-4 m-0">
                 <h1 class="m-0 display-4 text-uppercase text-white">CV</h1>
             </a>
-            <div class="col-lg-4 col-6 text-left">
-                <form action="/shop">
-                    <div class="input-group">
-                        <input type="text" class="form-control search-input" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -165,6 +153,7 @@
                 <div class="navbar-nav ml-auto p-4">
                     <a href="/" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
+                    <a href="/shop" class="nav-item nav-link">Shop</a>
                     <a href="/service" class="nav-item nav-link">Service</a>
                     <a href="/menu" class="nav-item nav-link">Menu</a>
                     <div class="dropdown">
@@ -253,10 +242,10 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('js1/main.js')}}"></script>
 
     <!-- More Javascript -->
     <script src="{{asset('js/navbar.js')}}"></script>
+    <script src="{{asset('js/search-ajax.js')}}"></script>
 
 </body>
 

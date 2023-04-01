@@ -7,6 +7,7 @@ use App\Models\Products;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
@@ -39,13 +40,15 @@ class Controller extends BaseController
     function testimonial(){
         return view('/testimonial');
     }
-    function shop(){
+    function shop(Request $request){
+        $key = $request->get('query');
+        $searchs = Products::search_ajax($key);
         $products = Products::index();
-        return view('/shop',compact('products'));
+        return view('shop',compact('searchs','products'));
     }
     function detail($key){
         $productbyid = Products::find($key);
-        $relaproducts = Products::protype('3')->paginate(4);
+        $relaproducts = Products::protype('3');
         return view('/detail',compact('relaproducts','productbyid'));
     }
     function blog($key){
