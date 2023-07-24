@@ -34,9 +34,10 @@ class BillsController extends Controller
      * @param  \App\Http\Requests\StoreBillsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBillsRequest $request)
+    public function store(StoreBillsRequest $request, Bills $bills)
     {
         //
+        return $bills->StoreBill($request);
     }
 
     /**
@@ -48,6 +49,8 @@ class BillsController extends Controller
     public function show(Bills $bills)
     {
         //
+        $bills = $bills->all();
+        return view('admin.bill.bills', compact('bills'));
     }
 
     /**
@@ -79,8 +82,9 @@ class BillsController extends Controller
      * @param  \App\Models\Bills  $bills
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bills $bills)
+    public function destroy(Bills $bills, $id)
     {
         //
+        return $bills->DeleteBill($bills, $id);
     }
 }

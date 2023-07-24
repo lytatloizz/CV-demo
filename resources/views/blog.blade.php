@@ -27,7 +27,9 @@
         <p>{{$blogs->blog_description}}</p>
     </div>
 </div>
-<div class="container py-3 related-post">
+
+
+<!-- <div class="container py-3 related-post">
     <div class="row related-post-title py-3">
         <h1>Related Posts</h1>
     </div>
@@ -43,7 +45,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Page Content End -->
 

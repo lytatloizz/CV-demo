@@ -267,7 +267,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Arabica',
             'product_price' => '70000',
-            'product_img' => 'product-21.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Arabica: được coi là loại hạt cafe cao cấp nhất, Arabica có hương vị ngọt ngào, thường có một chút đắng nhẹ. ',
@@ -279,7 +279,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Robusta',
             'product_price' => '90000',
-            'product_img' => 'product-22.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Robusta có hương vị đắng và hơi đất, thường được sử dụng trong sản xuất cafe espresso.',
@@ -291,7 +291,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Kona',
             'product_price' => '120000',
-            'product_img' => 'product-23.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Kona: được trồng trên đảo Hawaii, loại hạt cafe này có hương vị đặc trưng, thơm và ngọt ngào',
@@ -303,7 +303,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Liberica',
             'product_price' => '130000',
-            'product_img' => 'product-24.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Liberica có hương vị độc đáo, thường được sử dụng để pha cafe theo phong cách cổ điển',
@@ -315,7 +315,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Excelsa',
             'product_price' => '110000',
-            'product_img' => 'product-25.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Excelsa có hương vị độc đáo và hơi đắng, được sử dụng cho nhiều loại đồ uống khác nhau.',
@@ -327,7 +327,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Java',
             'product_price' => '150000',
-            'product_img' => 'product-26.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Java có hương vị đậm đà, mạnh mẽ, thường được sử dụng để pha cafe đen. ',
@@ -339,7 +339,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Sumatra',
             'product_price' => '180000',
-            'product_img' => 'product-27.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Sumatra có hương vị đặc trưng, độ đắng và hơi cay, thường được sử dụng để pha cafe đen và espresso. ',
@@ -351,7 +351,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Ethiopia Yirgacheffe',
             'product_price' => '220000',
-            'product_img' => 'product-28.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Ethiopia Yirgacheffe có hương vị đặc trưng, thường có hương vị trái cây và mùi thơm của hoa. ',
@@ -363,7 +363,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Colombia',
             'product_price' => '145000',
-            'product_img' => 'product-29.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Colombia có hương vị đậm đà, độ đắng vừa phải và hơi chua.',
@@ -375,7 +375,7 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'product_name' => 'Brazil',
             'product_price' => '170000',
-            'product_img' => 'product-30.jpg',
+            'product_img' => '6993.jpg',
             'product_qty' => '50',
             'product_sold' => '0',
             'product_description' => 'Brazil có hương vị đậm đà, thường có hương vị chocolate và độ đắng vừa phải. ',

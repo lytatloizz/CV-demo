@@ -13,7 +13,7 @@ class UpdateManufacturesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class UpdateManufacturesRequest extends FormRequest
     {
         return [
             //
+            'manu_name' => 'required|numeric|exists:manufactures,manu_name',
+            'manu_name' => 'required|string|max:50'
         ];
     }
 }

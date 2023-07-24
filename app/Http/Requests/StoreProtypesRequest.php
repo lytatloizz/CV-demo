@@ -13,7 +13,7 @@ class StoreProtypesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,7 @@ class StoreProtypesRequest extends FormRequest
     {
         return [
             //
+            'type_name' => 'required|string|max:50'
         ];
     }
 }

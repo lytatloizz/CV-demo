@@ -164,7 +164,7 @@
                         <h5 class="menu-price">${{ round($product->product_price/$exchange_rate) }}</h5>
                     </div>
                     <div class="col-8 col-sm-9">
-                        <a href="/detail/{{$product->product_id}}">
+                        <a href="{{route('detail',$product->product_id)}}">
                             <h4>{{ $product->product_name }}</h4>
                         </a>
                         <p class="m-0">{{ substr($product->product_description,0,100) }}...</p>
@@ -181,7 +181,7 @@
                         <h5 class="menu-price">${{ round($product->product_price/$exchange_rate) }}</h5>
                     </div>
                     <div class="col-8 col-sm-9">
-                        <a href="/detail/{{$product->product_id}}">
+                        <a href="{{route('detail',$product->product_id)}}">
                             <h4>{{ $product->product_name }}</h4>
                         </a>
                         <p class="m-0">{{ substr($product->product_description,0,100) }}...</p>
