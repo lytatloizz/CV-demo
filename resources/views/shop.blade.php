@@ -30,7 +30,8 @@
                 </form>
             </div>
             <!-- Price Start -->
-            <h5 class="position-relative text-uppercase"><span class="pr-3">Filter by price</span></h5>
+
+            <!-- <h5 class="position-relative text-uppercase"><span class="pr-3">Filter by price</span></h5>
             <div class="bg-light p-4 mb-30">
                 <form>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -64,13 +65,15 @@
                         <span class="badge border font-weight-normal">168</span>
                     </div>
                 </form>
-            </div>
+            </div> -->
+
             <!-- Price End -->
         </div>
         <!-- Shop Sidebar End -->
         <!-- Shop Product Start -->
         <div class="col-lg-9 col-md-8">
-            <div class="col-12 pb-1">
+            
+            <!-- <div class="col-12 pb-1">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="ml-2">
                         <div class="btn-group">
@@ -81,17 +84,10 @@
                                 <a class="dropdown-item" href="#">Best Rating</a>
                             </div>
                         </div>
-                        <div class="btn-group ml-2">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">10</a>
-                                <a class="dropdown-item" href="#">20</a>
-                                <a class="dropdown-item" href="#">30</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
             <div class="row pb-3" id="search-result">
                 @foreach($products as $product)
                 <div class="col-lg-4 col-md-6 col-sm-6 pb-1">

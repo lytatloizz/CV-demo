@@ -15,13 +15,13 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id('bill_id');
-            $table->unsignedBigInteger('product_id');
+            $table->integer('user_id')->default(0);
+            $table->string('user_name')->nullable();
+            $table->string('user_email')->nullable();
             $table->string('bill_description');
             $table->double('bill_price');
             $table->integer('bill_qty');
             $table->timestamps();
-            //create foreign-key
-            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

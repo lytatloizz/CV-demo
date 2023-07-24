@@ -1,5 +1,5 @@
 .top-header{
-    background-color: cyan;
+    background-color: rgb(136, 94, 94);
     text-align: right;
     display: flex;
 }
@@ -8,5 +8,5 @@
     margin: 10px;
 }
 .top-header a:hover{
-    color: #9e5603;
+    color: #1e271e;
 }

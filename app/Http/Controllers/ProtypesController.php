@@ -26,6 +26,7 @@ class ProtypesController extends Controller
     public function create()
     {
         //
+        return view('admin.protype.protype');
     }
 
     /**
@@ -34,9 +35,10 @@ class ProtypesController extends Controller
      * @param  \App\Http\Requests\StoreProtypesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProtypesRequest $request)
+    public function store(StoreProtypesRequest $request, Protypes $protypes)
     {
         //
+        return $protypes->StoreProtype($request);
     }
 
     /**
@@ -48,6 +50,21 @@ class ProtypesController extends Controller
     public function show(Protypes $protypes)
     {
         //
+        $protypes = $protypes->where('type_status', 0)->get();
+        return view('admin.protype.protypes', compact('protypes'));
+    }
+
+    /**
+     * Display the specified resource (Recycle Bin).
+     *
+     * @param  \App\Models\Protypes  $protypes
+     * @return \Illuminate\Http\Response
+     */
+    public function showTrash(Protypes $protypes)
+    {
+        //
+        $protype_trash = $protypes->where('type_status', 1)->get();
+        return view('admin.protype.protypes', compact('protype_trash'));
     }
 
     /**
@@ -56,9 +73,14 @@ class ProtypesController extends Controller
      * @param  \App\Models\Protypes  $protypes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Protypes $protypes)
+    public function edit(Protypes $protypes, $id)
     {
         //
+        $protype = $protypes->find($id);
+        if ($protype) {
+            return view('admin.protype.protype', compact('protype'));
+        }
+        return redirect()->route('protypes')->withSuccess('Your protype details are not valid');
     }
 
     /**
@@ -71,6 +93,7 @@ class ProtypesController extends Controller
     public function update(UpdateProtypesRequest $request, Protypes $protypes)
     {
         //
+        return $protypes->UpdateProtype($request);
     }
 
     /**
@@ -79,8 +102,31 @@ class ProtypesController extends Controller
      * @param  \App\Models\Protypes  $protypes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Protypes $protypes)
+    public function destroy(Protypes $protypes, $id)
     {
         //
+        return $protypes->DeleteProtype($protypes,$id);
+    }
+
+    /**
+     * Move the specified resource to Trash.
+     *
+     * @param  \App\Models\Protypes  $protypes
+     * @return \Illuminate\Http\Response
+     */
+    public function trash(Protypes $protypes, $id)
+    {
+        return $protypes->MoveToTrash($protypes, $id);
+    }
+
+    /**
+     * Restore the specified resource from Trash.
+     *
+     * @param  \App\Models\Protypes  $protypes
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Protypes $protypes, $id)
+    {
+        return $protypes->RestoreProtype($protypes, $id);
     }
 }

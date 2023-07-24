@@ -13,7 +13,7 @@ class UpdateProtypesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class UpdateProtypesRequest extends FormRequest
     {
         return [
             //
+            'type_id' => 'required|numeric|exists:protypes,type_id',
+            'type_name' => 'required|string|max:50'
         ];
     }
 }

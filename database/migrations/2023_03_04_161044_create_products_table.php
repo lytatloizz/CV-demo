@@ -19,12 +19,12 @@ class CreateProductsTable extends Migration
             $table->double('product_price', 11);
             $table->string('product_img', 150);
             $table->integer('product_qty');
-            $table->integer('product_sold');
-            $table->string('product_description', 500);
+            $table->integer('product_sold')->default(0);
+            $table->string('product_description', 225);
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('manu_id');
             $table->tinyInteger('product_feature');
-            $table->tinyInteger('product_status');
+            $table->tinyInteger('product_status')->default(0);
             $table->string('token')->nullable();
             $table->timestamps();
             //create foreign-key

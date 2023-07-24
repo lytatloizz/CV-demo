@@ -13,7 +13,7 @@ class StoreManufacturesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,7 @@ class StoreManufacturesRequest extends FormRequest
     {
         return [
             //
+            'manu_name' => 'required|string|max:50'
         ];
     }
 }

@@ -23,8 +23,7 @@
     <link href="{{asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('lib1/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib1/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/animate/animate.min.css')}}" rel="stylesheet">
 
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -38,9 +37,13 @@
     <!-- Top header -->
     <div class="top-header">
         <div class="container-fluid">
+            @if(check_auth())
             <a href="/shop-cart"><i class="fas fa-shopping-cart"> Shopping Cart</i></a>
-            <a href="#"><i class="fa fa-user"> Account</i></a>
-            <a href="" data-toggle="modal" data-target="#exampleModal">Login/Logout</a>
+            <!-- <a href="#"><i class="fa fa-user"> Account</i></a> -->
+            <a href="/signout" class="btn btn-info rounded-pill">LOGOUT</a>
+            @else
+            <a href="" data-toggle="modal" class="btn btn-info rounded-pill" data-target="#exampleModal">Login</a>
+            @endif
         </div>
     </div>
     <!-- Modal Start -->
@@ -54,31 +57,35 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="{{route('logins')}}" method="POST">
+                        @csrf
+                        @if (session('success'))
+                        <div class="alert alert-danger">
+                            {{ session('success') }}
+                        </div>
+                        @endif
                         <!-- Email input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Email</label>
-                            <input type="mail" class="form-control bg-transparent border-primary p-4" placeholder="Email" required="required" />
+                            <input type="mail" name="user_email" class="form-control bg-transparent border-primary p-4" placeholder="Email" required="required" />
                         </div>
                         <!-- Password input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Password</label>
-                            <input type="password" class="form-control bg-transparent border-primary p-4" placeholder="Password" required="required" />
+                            <input type="password" name="password" class="form-control bg-transparent border-primary p-4" placeholder="Password" required="required" />
                         </div>
                         <!-- 2 column grid layout for inline styling -->
-                        <div class="row mb-4">
+                        <!-- <div class="row mb-4">
                             <div class="col d-flex justify-content-center">
-                                <!-- Checkbox -->
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
                                     <label class="form-check-label" for="form2Example31"> Remember me </label>
                                 </div>
                             </div>
                             <div class="col">
-                                <!-- Simple link -->
                                 <a href="">Forgot password?</a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
                         <!-- Register buttons -->
@@ -93,7 +100,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal REGISTER-->
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -104,29 +111,45 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="{{ route('customerRegister') }}" method="POST">
+                        @csrf
+                        @if (session('success'))
+                        <div class="alert alert-danger">
+                            {{ session('success') }}
+                        </div>
+                        @endif
                         <!-- Name input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Name</label>
-                            <input type="text" class="form-control bg-transparent border-primary p-4" placeholder="Name" required="required" />
+                            <input type="text" class="form-control bg-transparent border-primary p-4" name="user_name" placeholder="Name" required="required" />
+                            @if ($errors->has('user_name'))
+                            <span class="text-danger">{{ $errors->first('user_name') }}</span>
+                            @endif
                         </div>
                         <!-- Email input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Email</label>
-                            <input type="mail" class="form-control bg-transparent border-primary p-4" placeholder="Email" required="required" />
+                            <input type="mail" class="form-control bg-transparent border-primary p-4" name="user_email" placeholder="Email" required="required" />
+                            @if ($errors->has('user_email'))
+                            <span class="text-danger">{{ $errors->first('user_email') }}</span>
+                            @endif
                         </div>
                         <!-- Password input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Password</label>
-                            <input type="password" class="form-control bg-transparent border-primary p-4" placeholder="Password" required="required" />
+                            <input type="password" class="form-control bg-transparent border-primary p-4 user_password" name="password" placeholder="Password" required="required" />
+                            @if ($errors->has('user_password'))
+                            <span class="text-danger">{{ $errors->first('user_password') }}</span>
+                            @endif
                         </div>
                         <!-- RePassword input -->
                         <div class="form-group">
                             <label class="form-label" for="form2Example2">Repassword</label>
-                            <input type="password" class="form-control bg-transparent border-primary p-4" placeholder="Repassword" required="required" />
+                            <input type="password" class="form-control bg-transparent border-primary p-4" name="user_repassword" placeholder="Repassword" required="required" />
+                            <span class="text-danger repass-result"></span>
                         </div>
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4 btn_register" disabled>Sign in</button>
                         <!-- Register buttons -->
                         <div class="text-center">
                             <p>You are member? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal">Login</a></p>
@@ -151,19 +174,21 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto p-4">
-                    <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/shop" class="nav-item nav-link">Shop</a>
-                    <a href="/service" class="nav-item nav-link">Service</a>
-                    <a href="/menu" class="nav-item nav-link">Menu</a>
-                    <div class="dropdown">
+                    <a href="{{ route('index') }}" class="nav-item nav-link {{ (request()->is('/')) ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('about') }}" class="nav-item nav-link {{ (request()->is('about')) ? 'active' : '' }}">About</a>
+                    <a href="{{ route('shop') }}" class="nav-item nav-link {{ (request()->is('shop')) ? 'active' : '' }}">Shop</a>
+                    <a href="{{ route('service') }}" class="nav-item nav-link {{ (request()->is('service')) ? 'active' : '' }}">Service</a>
+                    <a href="{{ route('menu') }}" class="nav-item nav-link {{ (request()->is('menu')) ? 'active' : '' }}">Menu</a>
+
+                    <!-- <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu text-capitalize">
                             <a href="/reservation" class="nav-item dropdown-item">Reservation</a>
                             <a href="/testimonial" class="nav-item dropdown-item">Testimonial</a>
                         </div>
                     </div>
-                    <a href="/contact" class="nav-item nav-link">Contact</a>
+                    <a href="{{ route('contact') }}" class="nav-item nav-link {{ (request()->is('contact')) ? 'active' : '' }}">Contact</a> -->
+
                 </div>
             </div>
         </nav>
@@ -233,8 +258,7 @@
     <script src="{{asset('lib/tempusdominus/js/moment.min.js')}}"></script>
     <script src="{{asset('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
     <script src="{{asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-    <script src="{{asset('lib1/easing/easing.min.js')}}"></script>
-    <script src="{{asset('lib1/owlcarousel/owl.carousel.min.js')}}"></script>
+
 
     <!-- Contact Javascript File -->
     <script src="{{asset('mail/jqBootstrapValidation.min.js')}}"></script>
@@ -244,8 +268,9 @@
     <script src="{{asset('js/main.js')}}"></script>
 
     <!-- More Javascript -->
-    <script src="{{asset('js/navbar.js')}}"></script>
+    <!-- <script src="{{asset('js/navbar.js')}}"></script> -->
     <script src="{{asset('js/search-ajax.js')}}"></script>
+    <script src="{{asset('js/check-password.js')}}"></script>
 
 </body>
 
