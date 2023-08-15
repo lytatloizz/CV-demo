@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <a class="h6 text-decoration-none text-truncate" href="detail/{{$product->product_id}}">{{$product->product_name}}</a>
+                            <a class="h6 text-decoration-none text-truncate" href="{{ route('detail',$product->product_id) }}">{{$product->product_name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <h5>{{$product->product_price}}</h5>
                                 <h6 class="text-muted ml-2"><del>{{$product->product_price}}</del></h6>
@@ -120,6 +120,7 @@
                 </div>
                 @endforeach
             </div>
+            <!-- Phan trang -->
             <div class="col-12">
                 <nav>
                     <ul class="pagination justify-content-center page">

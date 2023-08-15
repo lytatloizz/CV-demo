@@ -77,19 +77,19 @@
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
+                                <a class="btn btn-primary btn-minus">
                                     <i class="fa fa-minus"></i>
-                                </button>
+                                </a>
                             </div>
                             <input type="text" name="product_qty" class="form-control border-1 text-center" value="1">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
+                                <a class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         @if(check_auth())
-                        <input type="submit" value="Add To Cart" id="btn-sub" class="btn btn-primary px-3 mr-3">
+                        <input type="submit" value="Add To Cart" id="btn-sub" class="btn btn-primary px-3 mr-3 disable">
                         @else
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <input type="submit" class="btn btn-info" value="Pay"></input>
+                                        <input type="submit" class="btn btn_pay btn-info" value="Pay"></input>
                                     </div>
                                 </div>
                             </div>

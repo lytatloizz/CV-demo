@@ -18,7 +18,7 @@ class CreateBillsTable extends Migration
             $table->integer('user_id')->default(0);
             $table->string('user_name')->nullable();
             $table->string('user_email')->nullable();
-            $table->string('bill_description');
+            $table->string('bill_description', 550);
             $table->double('bill_price');
             $table->integer('bill_qty');
             $table->timestamps();

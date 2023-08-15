@@ -66,7 +66,7 @@ function check_auth()
 }
 
 function check_product_exists_in_shop_carts($product_id){
-    $cart = Carts::where('product_id', $product_id)->first();
+    $cart = Carts::where('product_id', $product_id)->where('user_id', Auth::id())->first();
     if($cart){
         return true;
     }

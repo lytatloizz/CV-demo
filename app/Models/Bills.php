@@ -24,10 +24,10 @@ class Bills extends Model
         if (Auth::check()) {
             $user = User::find(Auth::id());
             $bill->user_id = $user->user_id;
-            $bill->user_name = $user->user_name;
-            $bill->user_email = $user->user_email;
             Carts::where('user_id', Auth::id())->delete();
         }
+        $bill->user_name = $request->user_name;
+        $bill->user_email = $request->user_email;
         $bill->bill_description = $request->input('product_description');
         $bill->bill_qty = $request->input('product_qty');
         $bill->bill_price = $request->input('product_price');
